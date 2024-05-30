@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wheel of Fortune</title>
+    <title>Customizable Wheel of Fortune</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="wheel-container">
-        <div id="wheel" class="wheel"></div>
-        <button id="spinButton">Spin the Wheel</button>
+    <div class="container">
+        <div class="wheel-container">
+            <canvas id="wheelCanvas" width="500" height="500"></canvas>
+        </div>
+        <div class="controls">
+            <div class="segment">
+                <label for="segment1">Segment 1 Probability (%):</label>
+                <input type="number" id="segment1" value="50" min="0" max="100">
+            </div>
+            <div class="segment">
+                <label for="segment2">Segment 2 Probability (%):</label>
+                <input type="number" id="segment2" value="50" min="0" max="100">
+            </div>
+            <button id="spinButton">Spin the Wheel</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
