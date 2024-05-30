@@ -1,42 +1,20 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
+document.getElementById('spinButton').addEventListener('click', spinWheel);
 
-.wheel-container {
-    text-align: center;
-}
+function spinWheel() {
+    const wheel = document.getElementById('wheel');
+    const probability = Math.random() * 100;
+    let rotation;
 
-.wheel {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    border: 5px solid #333;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    if (probability <= 1) {
+        rotation = 720; // Winning position (1%)
+    } else {
+        rotation = 360; // Losing position (99%)
+    }
 
-.segment {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    background-color: #ff0000;
-    border: 1px solid #333;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
-}
+    wheel.style.transition = 'transform 4s ease-out';
+    wheel.style.transform = `rotate(${rotation + (360 * 5)}deg)`;
 
-.segment:nth-child(2) {
-    transform: rotate(180deg) translateX(100%);
-    background-color: #00ff00;
+    setTimeout(() => {
+        alert(probability <= 1 ? 'You win!' : 'You lose!');
+    }, 4000);
 }
